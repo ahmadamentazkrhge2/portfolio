@@ -1,0 +1,87 @@
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  min-height: 50vh;
+}
+
+.contact-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #facc15; /* أصفر */
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.contacts-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 40px;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 15px;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.contact-card:hover {
+  transform: translateY(-10px) scale(1.1);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.contact-card .icon {
+  font-size: 50px;
+  color: var(--icon-color);
+  transition: transform 0.3s;
+}
+
+.contact-card:hover .icon {
+  transform: rotate(15deg) scale(1.2);
+}
+
+.contact-card .name {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* --- التجاوب للشاشات المتوسطة --- */
+@media (max-width: 768px) {
+  .contact-card .icon {
+    font-size: 40px;
+  }
+  .contact-card .name {
+    font-size: 14px;
+  }
+  .contacts-wrapper {
+    gap: 30px;
+  }
+}
+
+/* --- التجاوب للشاشات الصغيرة --- */
+@media (max-width: 480px) {
+  .contacts-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .contact-card .icon {
+    font-size: 30px;
+  }
+  .contact-card .name {
+    font-size: 12px;
+  }
+}
