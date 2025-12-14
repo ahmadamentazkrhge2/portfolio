@@ -7,7 +7,7 @@ export default function Contact() {
     {
       name: "Email",
       icon: <SiGmail />,
-      link: "mailto:tazkrhgeahmadamen@gmail.com",
+      link: "https://mail.google.com/mail/?view=cm&to=tazkrhgeahmadamen@gmail.com",
       color: "#D44638",
     },
     {

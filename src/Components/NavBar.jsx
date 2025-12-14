@@ -60,7 +60,7 @@ const Navbar = () => {
             <a href="https://www.instagram.com/ahmad__tazkrhge/" target="_blank" rel="noopener noreferrer">
               <SiInstagram />
             </a>
-            <a href="mailto:tazkrhgeahmadamen@gmail.com">
+            <a href="https://mail.google.com/mail/?view=cm&to=tazkrhgeahmadamen@gmail.com">
               <SiGmail />
             </a>
           </div>
