@@ -94,7 +94,7 @@ function SkillsSphere() {
 
 export default function Skills3D() {
   return (
-    <div id="skills" style={{ width: "100%", height: "700px" }} className="pt-5 pb-5 skills-container">
+    <div id="skills" style={{ width: "100%", height: "700px" }} className="pt-20 pb-20 skills-container">
       <h2 className="text-4xl font-bold text-center mb-12 text-amber-50 ">
         Skills
       </h2>
