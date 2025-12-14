@@ -45,9 +45,13 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden mt-4 px-8 flex flex-col gap-4 text-gray-300">
+      {/* Mobile Menu with smooth transition */}
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-1000 ease-in-out ${
+          isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="px-8 flex flex-col gap-4 text-gray-300 py-4">
           <a href="#projects" className="hover:text-indigo-400">Projects</a>
           <a href="#skills" className="hover:text-indigo-400">Skills</a>
           <a href="#contact" className="hover:text-indigo-400">Contact</a>
@@ -65,7 +69,7 @@ const Navbar = () => {
             </a>
           </div>
         </div>
-      )}
+      </div>
     </nav>
   );
 };
