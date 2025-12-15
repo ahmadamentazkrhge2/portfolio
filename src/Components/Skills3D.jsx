@@ -1,110 +1,95 @@
-import React, { useRef, useState } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { Html, OrbitControls } from "@react-three/drei";
-import { 
-  SiHtml5, 
-  SiCss3, 
-  SiJavascript, 
-  SiReact, 
-  SiGit, 
-  SiGithub 
+import { useEffect, useRef, useState } from "react";
+import {
+  SiHtml5,
+  SiCss3,
+  SiJavascript,
+  SiReact,
+  SiGithub,
 } from "react-icons/si";
-
+import React from "react";
+import { MdDevices } from "react-icons/md";
 
 const skills = [
-  { name: "HTML", icon: <SiHtml5 color="#E34F26" /> },
-  { name: "CSS", icon: <SiCss3 color="#1572B6" /> },
-  { name: "JavaScript", icon: <SiJavascript color="#F7DF1E" /> },
-  { name: "React", icon: <SiReact color="#61DAFB" /> },
-  { name: "Responsive Design", icon: <SiHtml5 color="#FF6F61" /> }, // أيقونة مؤقتة
-  { name: "Git / GitHub", icon: <SiGithub color="#FFFFFF" /> }, // لون أبيض
+  { name: "HTML", icon: <SiHtml5 />, color: "text-orange-500" },
+  { name: "CSS", icon: <SiCss3 />, color: "text-blue-500" },
+  { name: "JavaScript", icon: <SiJavascript />, color: "text-yellow-400" },
+  { name: "React", icon: <SiReact />, color: "text-cyan-400" },
+  { name: "Git / GitHub", icon: <SiGithub />, color: "text-gray-300" },
+  {
+    name: "Responsive Design",
+    icon: <MdDevices />,
+    color: "text-indigo-400",
+  },
 ];
 
-function Skill({ position, skill }) {
-  const [hovered, setHovered] = useState(false);
+const Skills3D = () => {
+  const sectionRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+  }, []);
 
   return (
-    <mesh
-      position={position}
-      onPointerOver={() => setHovered(true)}
-      onPointerOut={() => setHovered(false)}
+    <section
+      ref={sectionRef}
+      id="skills"
+      className="py-32 bg-slate-900 text-white"
     >
-      <Html center>
+      {/* container مثل Navbar */}
+      <div className="container mx-auto px-8 md:px-32">
+        
+        {/* Title */}
+        <h2 className="text-4xl font-bold text-center mb-16">
+          Skills
+        </h2>
+
+        {/* Skills Grid */}
         <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            cursor: "pointer",
-          }}
+          className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-12
+          transition-all duration-700 ease-out
+          ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
-          <div
-            style={{
-              fontSize: hovered ? 40 : 30,
-              transition: "all 0.2s",
-            }}
-          >
-            {skill.icon}
-          </div>
-          <span
-            style={{
-              marginTop: 5,
-              fontSize: 14,
-              color: "#fff",
-              fontWeight: "bold",
-              textAlign: "center",
-            }}
-          >
-            {skill.name}
-          </span>
+          {skills.map((skill, index) => (
+            <div
+              key={index}
+              style={{ transitionDelay: `${index * 100}ms` }}
+              className={`flex flex-col items-center gap-4 group
+              transition-all duration-700 ease-out
+              ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+            >
+              {/* Icon */}
+              <div
+                className={`text-5xl ${skill.color}
+                transition-all duration-300
+                group-hover:scale-105
+                group-hover:rotate-1
+                group-hover:drop-shadow-[0_0_14px_rgba(99,102,241,0.6)]`}
+              >
+                {skill.icon}
+              </div>
+
+              {/* Label */}
+              <p className="text-sm text-gray-300 text-center">
+                {skill.name}
+              </p>
+            </div>
+          ))}
         </div>
-      </Html>
-    </mesh>
+
+      </div>
+    </section>
   );
-}
+};
 
-function SkillsSphere() {
-  const groupRef = useRef();
-
-  useFrame(() => {
-    if (groupRef.current) {
-      groupRef.current.rotation.y += 0.002;
-      groupRef.current.rotation.x += 0.001;
-    }
-  });
-
-  const radius = 2;
-  const skillPositions = skills.map((_, i) => {
-    const phi = Math.acos(-1 + (2 * i) / skills.length);
-    const theta = Math.sqrt(skills.length * Math.PI) * phi;
-    const x = radius * Math.cos(theta) * Math.sin(phi);
-    const y = radius * Math.sin(theta) * Math.sin(phi);
-    const z = radius * Math.cos(phi);
-    return [x, y, z];
-  });
-
-  return (
-    <group ref={groupRef}>
-      {skills.map((skill, index) => (
-        <Skill key={index} position={skillPositions[index]} skill={skill} />
-      ))}
-    </group>
-  );
-}
-
-export default function Skills3D() {
-  return (
-    <div id="skills" style={{ width: "100%", height: "700px" }} className="pt-20 pb-20 skills-container">
-      <h2 className="text-4xl font-bold text-center mb-12 text-amber-50 ">
-        Skills
-      </h2>
-
-      <Canvas camera={{ position: [0, 0, 6], fov: 50 }}>
-        <ambientLight intensity={0.5} />
-        <directionalLight position={[5, 5, 5]} />
-        <SkillsSphere />
-        <OrbitControls enableZoom={false} />
-      </Canvas>
-    </div>
-  );
-}
+export default Skills3D;
