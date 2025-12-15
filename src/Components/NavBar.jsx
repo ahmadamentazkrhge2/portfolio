@@ -41,20 +41,20 @@ const Navbar = () => {
           className="md:hidden text-white text-2xl cursor-pointer"
           onClick={() => setIsOpen(!isOpen)}
         >
-          ☰
+          {isOpen ? "✕" : "☰"}
         </button>
       </div>
 
-      {/* Mobile Menu with smooth transition */}
+      {/* Mobile Menu (Push content down) */}
       <div
         className={`md:hidden overflow-hidden transition-all duration-1000 ease-in-out ${
-          isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-        }`}
+          isOpen ? "max-h-[300px]" : "max-h-0"
+        } bg-slate-900`}
       >
-        <div className="px-8 flex flex-col gap-4 text-gray-300 py-4">
-          <a href="#projects" className="hover:text-indigo-400">Projects</a>
-          <a href="#skills" className="hover:text-indigo-400">Skills</a>
-          <a href="#contact" className="hover:text-indigo-400">Contact</a>
+        <div className="flex flex-col px-8 py-4 gap-4 text-gray-300">
+          <a href="#projects" className="hover:text-indigo-400" onClick={() => setIsOpen(false)}>Projects</a>
+          <a href="#skills" className="hover:text-indigo-400" onClick={() => setIsOpen(false)}>Skills</a>
+          <a href="#contact" className="hover:text-indigo-400" onClick={() => setIsOpen(false)}>Contact</a>
 
           {/* Social Icons Mobile */}
           <div className="flex gap-4 mt-4 text-white text-xl">
@@ -64,7 +64,7 @@ const Navbar = () => {
             <a href="https://www.instagram.com/ahmad__tazkrhge/" target="_blank" rel="noopener noreferrer">
               <SiInstagram />
             </a>
-            <a href="https://mail.google.com/mail/?view=cm&to=tazkrhgeahmadamen@gmail.com">
+            <a href="mailto:tazkrhgeahmadamen@gmail.com">
               <SiGmail />
             </a>
           </div>
