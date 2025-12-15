@@ -5,6 +5,8 @@ import {
   SiJavascript,
   SiReact,
   SiGithub,
+  SiTailwindcss,
+  SiBootstrap,
 } from "react-icons/si";
 import React from "react";
 import { MdDevices } from "react-icons/md";
@@ -15,11 +17,9 @@ const skills = [
   { name: "JavaScript", icon: <SiJavascript />, color: "text-yellow-400" },
   { name: "React", icon: <SiReact />, color: "text-cyan-400" },
   { name: "Git / GitHub", icon: <SiGithub />, color: "text-gray-300" },
-  {
-    name: "Responsive Design",
-    icon: <MdDevices />,
-    color: "text-indigo-400",
-  },
+  { name: "Tailwind CSS", icon: <SiTailwindcss />, color: "text-teal-400" },
+  { name: "Bootstrap", icon: <SiBootstrap />, color: "text-purple-500" },
+  { name: "Responsive Design", icon: <MdDevices />, color: "text-indigo-400" },
 ];
 
 const Skills3D = () => {
@@ -46,17 +46,12 @@ const Skills3D = () => {
       id="skills"
       className="py-32 bg-slate-900 text-white"
     >
-      {/* container مثل Navbar */}
       <div className="container mx-auto px-8 md:px-32">
-        
-        {/* Title */}
-        <h2 className="text-4xl font-bold text-center mb-16">
-          Skills
-        </h2>
+        <h2 className="text-4xl font-bold text-center mb-16">Skills</h2>
 
         {/* Skills Grid */}
         <div
-          className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-12
+          className={`grid grid-cols-6 gap-12 justify-items-center
           transition-all duration-700 ease-out
           ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
@@ -66,7 +61,11 @@ const Skills3D = () => {
               style={{ transitionDelay: `${index * 100}ms` }}
               className={`flex flex-col items-center gap-4 group
               transition-all duration-700 ease-out
-              ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+              ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}
+              ${skill.name === "Bootstrap" || skill.name === "Responsive Design"
+                  ? "col-span-3"
+                  : "col-span-2"
+                }`}
             >
               {/* Icon */}
               <div
@@ -80,13 +79,10 @@ const Skills3D = () => {
               </div>
 
               {/* Label */}
-              <p className="text-sm text-gray-300 text-center">
-                {skill.name}
-              </p>
+              <p className="text-sm text-gray-300 text-center">{skill.name}</p>
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );
