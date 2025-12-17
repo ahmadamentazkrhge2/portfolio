@@ -61,7 +61,7 @@ const Skills3D = () => {
               style={{ transitionDelay: `${index * 100}ms` }}
               className={`flex flex-col items-center gap-4 group
               transition-all duration-700 ease-out
-              ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}
+              ${visible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-6"}
               ${skill.name === "Bootstrap" || skill.name === "Responsive Design"
                   ? "col-span-3"
                   : "col-span-2"

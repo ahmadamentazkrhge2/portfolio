@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { SiLinkedin, SiInstagram, SiGmail } from "react-icons/si";
-import React from "react";
+
 export default function Contact() {
   const sectionRef = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -11,21 +11,18 @@ export default function Contact() {
       icon: <SiGmail />,
       link: "https://mail.google.com/mail/?view=cm&to=tazkrhgeahmadamen@gmail.com",
       color: "text-red-500",
-      glow: "rgba(212,70,56,0.6)",
     },
     {
       name: "LinkedIn",
       icon: <SiLinkedin />,
       link: "https://www.linkedin.com/in/ahmad-tazkrhge-4948aa377/",
       color: "text-blue-500",
-      glow: "rgba(10,102,194,0.6)",
     },
     {
       name: "Instagram",
       icon: <SiInstagram />,
       link: "https://www.instagram.com/ahmad__tazkrhge/",
       color: "text-pink-500",
-      glow: "rgba(193,53,132,0.6)",
     },
   ];
 
@@ -47,11 +44,10 @@ export default function Contact() {
     <section
       ref={sectionRef}
       id="contact"
-      className="py-32 bg-slate-900 text-white"
+      className="py-24 bg-slate-900 text-white"
     >
-      {/* Container مثل Navbar و Skills */}
-      <div className="container mx-auto px-8 md:px-32">
-        
+      {/* Container */}
+      <div className="container mx-auto px-4 sm:px-8 md:px-32">
         {/* Title */}
         <h2 className="text-4xl font-bold text-center mb-16">
           Contact
@@ -59,7 +55,7 @@ export default function Contact() {
 
         {/* Cards */}
         <div
-          className={`grid grid-cols-1 sm:grid-cols-3 gap-12
+          className={`grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12
           transition-all duration-700 ease-out
           ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
@@ -70,20 +66,17 @@ export default function Contact() {
               target="_blank"
               rel="noopener noreferrer"
               style={{ transitionDelay: `${index * 120}ms` }}
-              className={`flex flex-col items-center gap-4 p-8 rounded-2xl
+              className={`flex flex-col items-center gap-4 p-6 sm:p-8 rounded-2xl
               bg-slate-800 border border-white/10
-              transition-all duration-500 ease-out group
+              transition-all duration-500 ease-out group overflow-hidden
               ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}
               hover:-translate-y-2`}
             >
               {/* Icon */}
               <div
                 className={`text-5xl ${contact.color}
-                transition-all duration-300
+                transition-transform duration-300
                 group-hover:scale-110`}
-                style={{
-                  filter: "drop-shadow(0 0 0 transparent)",
-                }}
               >
                 {contact.icon}
               </div>
