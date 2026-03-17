@@ -30,7 +30,7 @@ const Navbar = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <SiLinkedin />
+            <SiLinkedin  />
           </a>
            <a
             href="https://github.com/AhmadTazkaragi"
@@ -44,7 +44,7 @@ const Navbar = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <SiGmail />
+            <SiGmail  />
           </a>
         </div>
 
@@ -78,12 +78,12 @@ const Navbar = () => {
               <SiLinkedin />
             </a>
             <a
-              href="https://www.instagram.com/ahmad__tazkrhge/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <SiInstagram />
-            </a>
+            href="https://github.com/AhmadTazkaragi"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <SiGithub />
+          </a>
             <a
               href="https://mail.google.com/mail/?view=cm&to=tazkrhgeahmadamen@gmail.com"
               target="_blank"
