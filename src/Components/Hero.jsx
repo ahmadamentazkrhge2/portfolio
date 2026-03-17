@@ -12,7 +12,7 @@ const Hero = () => {
         </p>
 
         <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
-          Hi, I'm Ahmad Tazkrhge
+          Hi, I'm Ahmad Tazkaragi
         </h1>
 
         <p className="text-gray-400 mb-8 max-w-3xl">

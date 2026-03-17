@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SiLinkedin, SiInstagram, SiGmail } from "react-icons/si";
+import { SiLinkedin, SiInstagram, SiGmail,SiGithub } from "react-icons/si";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,12 +32,12 @@ const Navbar = () => {
           >
             <SiLinkedin />
           </a>
-          <a
-            href="https://www.instagram.com/ahmad__tazkrhge/"
+           <a
+            href="https://github.com/AhmadTazkaragi"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <SiInstagram />
+            <SiGithub />
           </a>
           <a
             href="https://mail.google.com/mail/?view=cm&to=tazkrhgeahmadamen@gmail.com"
@@ -71,7 +71,7 @@ const Navbar = () => {
           {/* Mobile Social Icons */}
           <div className="flex gap-6 mt-4 text-white text-2xl justify-center">
             <a
-              href="https://www.linkedin.com/in/ahmad-tazkrhge-4948aa377/"
+              href="https://www.linkedin.com/in/ahmad-tazkaragi-4948aa377/"
               target="_blank"
               rel="noopener noreferrer"
             >

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { SiLinkedin, SiInstagram, SiGmail } from "react-icons/si";
+import { SiLinkedin, SiInstagram,SiGithub, SiGmail } from "react-icons/si";
 
 export default function Contact() {
   const sectionRef = useRef(null);
@@ -15,14 +15,14 @@ export default function Contact() {
     {
       name: "LinkedIn",
       icon: <SiLinkedin />,
-      link: "https://www.linkedin.com/in/ahmad-tazkrhge-4948aa377/",
+      link: "https://www.linkedin.com/in/ahmad-tazkaragi-4948aa377/",
       color: "text-blue-500",
     },
     {
-      name: "Instagram",
-      icon: <SiInstagram />,
-      link: "https://www.instagram.com/ahmad__tazkrhge/",
-      color: "text-pink-500",
+      name: "Github",
+      icon: <SiGithub />,
+      link: "https://github.com/AhmadTazkaragi",
+      color: "text-gray-900 dark:text-white",
     },
   ];
 
