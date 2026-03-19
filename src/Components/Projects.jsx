@@ -1,9 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import ProjectCard from "./ProjectCard";
-import { client } from "./sanityClient";
+import projectsData from "../data/projects"; 
 
 const Projects = () => {
-
   const sectionRef = useRef(null);
   const [visible, setVisible] = useState(false);
   const [projects, setProjects] = useState([]);
@@ -13,38 +12,21 @@ const Projects = () => {
       ([entry]) => entry.isIntersecting && setVisible(true),
       { threshold: 0.2 }
     );
-
     if (sectionRef.current) observer.observe(sectionRef.current);
-
   }, []);
 
   useEffect(() => {
-
-const query = `*[_type == "project"]{
-  title,
-  description,
-  "imageUrl": image.asset->url + "?w=800&auto=format",
-  github,
-  demo,
-  tech
-}`;
-    client.fetch(query).then((data) => {
-      setProjects(data);
-    });
-
+    setProjects(projectsData); 
   }, []);
 
   return (
     <section ref={sectionRef} id="projects" className="bg-slate-900 pt-16">
-
       <div className="container mx-auto px-4 sm:px-8 md:px-32">
-
         <h2 className="text-4xl font-bold text-center mb-12 text-amber-50">
           Projects
         </h2>
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-
           {projects.map((project, index) => (
             <div
               key={index}
@@ -56,10 +38,8 @@ const query = `*[_type == "project"]{
               <ProjectCard project={project} />
             </div>
           ))}
-
         </div>
       </div>
-
     </section>
   );
 };
