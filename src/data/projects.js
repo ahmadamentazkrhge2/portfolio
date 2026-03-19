@@ -20,7 +20,7 @@ const projectsData = [
     tech: ["React", "API", "Responsive Design"],
     github: "https://github.com/ahmadamentazkrhge2/Movie_search_app_react",
     demo: "https://movie-search-app-react1.vercel.app/",
-    image: img2,
+    image: img2
   },
   {
     id: 3,
