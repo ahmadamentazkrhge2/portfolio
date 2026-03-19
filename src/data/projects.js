@@ -1,4 +1,9 @@
-export const projects = [
+import img1 from "../assets/1.png";
+import img2 from "../assets/2.jpg";
+import img3 from "../assets/3.jpg";
+import img4 from "../assets/4.jpg";
+
+const projectsData = [
   {
     id: 1,
     title: "Little Lemon",
@@ -6,6 +11,7 @@ export const projects = [
     tech: ["React", "Context API", "Responsive Design"],
     github: "https://github.com/ahmadamentazkrhge2/Little__Lemon",
     demo: "https://little-lemon-1ajj.vercel.app/",
+    image: img1,
   },
   {
     id: 2,
@@ -14,6 +20,7 @@ export const projects = [
     tech: ["React", "API", "Responsive Design"],
     github: "https://github.com/ahmadamentazkrhge2/Movie_search_app_react",
     demo: "https://movie-search-app-react1.vercel.app/",
+    image: img2
   },
   {
     id: 3,
@@ -22,6 +29,7 @@ export const projects = [
     tech: ["React", "Tailwind", "Responsive Design"],
     github: "https://github.com/ahmadamentazkrhge2/Quiz_App",
     demo: "https://quiz-app-xi-nine-56.vercel.app/",
+    image: img3,    
   },
   {
     id: 4,
@@ -30,5 +38,8 @@ export const projects = [
     tech: ["React", "Tailwind", "API", "Responsive Design", "Dynamic Colors"],
     github: "https://github.com/ahmadamentazkrhge2/Weather_app_react",
     demo: "https://weather-app-react-sand.vercel.app/",
+    image: img4,
   },
 ];
+
+export default projectsData;
