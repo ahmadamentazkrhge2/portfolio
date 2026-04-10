@@ -8,7 +8,7 @@ const ProjectCard = ({ project }) => {
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-auto object-cover aspect-[16/9] sm:aspect-[4/3] md:aspect-[16/9] lg:aspect-[21/9]"
+            className="w-full h-auto object-cover "
           />
         </div>
       )}
