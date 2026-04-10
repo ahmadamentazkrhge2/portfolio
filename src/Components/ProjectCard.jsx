@@ -5,7 +5,7 @@ const ProjectCard = ({ project }) => {
     <div className="bg-slate-800 border border-white/10 rounded-xl p-6 hover:scale-105 transition-transform duration-300">
       {project.image && (
         <div className="w-full mb-4 overflow-hidden rounded-lg">
-          <img
+          <img loading="lazy"
             src={project.image}
             alt={project.title}
             className="w-full h-auto object-cover "
