@@ -2,10 +2,20 @@ import img1 from "../assets/1.png";
 import img2 from "../assets/2.png";
 import img3 from "../assets/3.png";
 import img4 from "../assets/4.png";
+import Dashboard from "../assets/Dashboard.jpg";
 
 const projectsData = [
-  {
+    {
     id: 1,
+    title: "Dashboard Kick",
+    description: "A clean admin dashboard UI for managing products, orders, and sales. It includes summary cards, category stats, a sales graph with time filters, and a best‑sellers list.",
+    tech: ["Next.js", "Tailwind", "Responsive Design,supabase"],
+    github: "https://github.com/AhmadTazkaragi/Dashboard_Kick",
+    demo: "https://dashboard-kick.vercel.app/dashboard",
+    image: Dashboard,
+  },
+  {
+    id: 2,
     title: "Little Lemon",
     description: "A modern restaurant website built with React. Features include responsive design, a shopping cart, and state management using Context API.",
     tech: ["React", "Context API", "Responsive Design"],
@@ -14,7 +24,7 @@ const projectsData = [
     image: img1,
   },
   {
-    id: 2,
+    id: 3,
     title: "Movie Search App",
     description: "Search movies using an external API with a clean UI. Features include search functionality, movie details display, and responsive design.",
     tech: ["React", "API", "Responsive Design"],
@@ -23,7 +33,7 @@ const projectsData = [
     image: img2
   },
   {
-    id: 3,
+    id: 4,
     title: "Quiz App",
     description: "Interactive quiz app with timer, scoring system, and review of answers. Built with React and Tailwind CSS for a modern responsive design.",
     tech: ["React", "Tailwind", "Responsive Design"],
@@ -32,7 +42,7 @@ const projectsData = [
     image: img3,    
   },
   {
-    id: 4,
+    id: 5,
     title: "Weather App",
     description: "A modern weather application using React and OpenWeather API. Features include searching by city, displaying weather details, dynamic background colors based on weather conditions, and responsive design.",
     tech: ["React", "Tailwind", "API", "Responsive Design", "Dynamic Colors"],

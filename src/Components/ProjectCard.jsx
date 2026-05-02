@@ -2,13 +2,14 @@ import React from "react";
 
 const ProjectCard = ({ project }) => {
   return (
-    <div className="bg-slate-800 border border-white/10 rounded-xl p-6 hover:scale-105 transition-transform duration-300">
+    <div className="bg-slate-800 border border-white/10 rounded-xl p-6 hover:scale-105 transition-transform duration-300 h-full flex flex-col">
       {project.image && (
-        <div className="w-full mb-4 overflow-hidden rounded-lg">
-          <img loading="lazy"
+        <div className="w-full mb-4 overflow-hidden rounded-lg h-44">
+          <img
+            loading="lazy"
             src={project.image}
             alt={project.title}
-            className="w-full h-auto object-cover "
+            className="w-full h-full object-cover"
           />
         </div>
       )}
@@ -24,7 +25,7 @@ const ProjectCard = ({ project }) => {
           </span>
         ))}
       </div>
-      <div className="flex gap-4">
+      <div className="flex gap-4 mt-auto">
         <a
           href={project.github}
           target="_blank"
